@@ -1,8 +1,12 @@
-@extends('layouts.plantillabase');
+@extends('adminlte::page')
 
-@section('contenido')
-<h2>Editar registro</h2>
+@section('title', 'CRUD con Laravel 9')
 
+@section('content_header')
+    <h1>Editar Artículo</h1>
+@stop
+
+@section('content')
     <form action='/articulos/{{$articulo->id}}' method="POST">
         @csrf
         @method('PUT')
@@ -29,5 +33,12 @@
         <a href="/articulos" class="btn btn-secondary" tabindex="5">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+    
+@stop
 
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+@stop

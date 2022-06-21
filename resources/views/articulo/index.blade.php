@@ -1,12 +1,12 @@
-@extends('layouts.plantillabase');
+@extends('adminlte::page')
 
-@section('css')
-    <link href='https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css' rel='stylesheet'>
-@endsection
+@section('title', 'CRUD con laravel 9')
 
+@section('content_header')
+    <h1>Listado de productos</h1>
+@stop
 
-
-@section('contenido')
+@section('content')
     <a href='articulos/create' class='btn btn-primary mb-3'>Crear</a>
 
     <table id='articulos' class='table table-striped table-bordered shadow-lg mt-4' style='width:100%'>
@@ -41,10 +41,14 @@
             @endforeach
         </tbody>
     </table>
+@stop
 
+@section('css')
+    <link href='https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css' rel='stylesheet'>  
+@stop
 
-    @section('js')
-        <script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+@section('js')
+    <script src='https://code.jquery.com/jquery-3.5.1.js'></script>
         <script src='https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js'></script>
         <script src='https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js'></script>
 
@@ -52,8 +56,7 @@
             $(document).ready(function () {
                 $('#articulos').DataTable({
                     'lengthMenu':[[5, 10, 50, -1], [5, 10, 50, 'All']]
-                });
             });
-        </script>
-    @endsection
-@endsection
+        });
+    </script>
+@stop
